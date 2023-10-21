@@ -5,17 +5,96 @@
     padding: 0;
     box-sizing: border-box;
     font-family:"Roboto";
+    scroll-behavior: smooth;
 }
+
+/*------------top------------ */
+.top-container{
+    height: 30px;
+    background-color: #fff;
+    position: absolute;
+    right: 0px;
+    width: 100%;
+}
+.top-div{
+    width: 400px;
+    height: 30px;
+    background: yellow;
+    position: absolute;
+    right: 0;
+    clip-path: polygon(0 0, 129% 0, 49% 357%, 0 -120%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.top-div a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    padding-left: 68px;
+}
+.wrapper{
+    position: absolute;
+    box-sizing: content-box;
+    height: 30px;
+    display: flex;
+    left: 43%;
+}
+.wrapper p,span{
+    font-size: 20px;
+}
+.words{
+    overflow: hidden;
+}
+.wrapper span{
+    display: block;
+    height: 100%;
+    padding-left: 5px;
+    animation: spin_words 6s infinite;
+}
+@keyframes spin_words{
+    10%{
+        transform: translateY(-112%);
+    }
+    25%{
+        transform: translateY(-100%);
+    }
+    35%{
+        transform: translateY(-212%);
+    }
+    50%{
+        transform: translateY(-200%);
+    }
+    60%{
+        transform: translateY(-312%);
+    }
+    75%{
+        transform: translateY(-300%);
+    }
+    85%{
+        transform: translateY(-412%);
+    }
+    100%{
+        transform: translateY(-400%);
+    }
+} 
+
+/*------------Navbar------------ */
+
 .nav-bar{
     background-color: #000;
+    position: fixed;
+    z-index: 2;
+}
+.nav-bar .row{
+    padding-top: 33px;
 }
 .logo-div{
     width: 296px;
     height: 115px;
 }
 .logo-div img{
-    width: 100%;
-    height: 119px;
+    width: 84%;
 }
 
 .toggle {
@@ -27,7 +106,7 @@
 .toggle .bar-icon{
     font-size: 29px;
     font-weight: bold;
-    color: rgb(241, 40, 87);
+    color: rgba(238, 41, 83, 1);
     display: none;
     z-index: 1;
 }
@@ -42,19 +121,39 @@
     padding-top: 21px;
 }
 .menu a{
+    position: relative;
+    font-family: "poppins",sans-serif;
     text-decoration: none;
-    color: #fff;
+    color: #a0a0a0;
     font-size: 23px;
     padding: 0 15px;
 }
+.menu a:after{
+    content: "";
+    position: absolute;
+    background-color: rgba(238, 41, 83, 1);
+    height: 3px;
+    width: 0;
+    left: 17px;
+    bottom: -10px;
+    transition: 0.5s;
+}
+.menu a:hover{
+    color: #fff;
+    transition: 0.5s;
+}
+.menu a:hover:after{
+    width: 65%;
+}
+
 
 /*------------Slider------------ */
 
 
 .home-slide{
     background: #000;
-    padding-top: 13px;
-    height: 520px;
+    padding-top: 150px;
+    height: 640px;
     position: relative;
 }
 .slider img{
@@ -67,7 +166,7 @@
     font-size: 30px;
     border-radius: 50%;
     width: 46px;
-    background: rgb(241, 40, 87);
+    background: rgba(238, 41, 83, 1);
     border: none;
     display: none;
 }
@@ -113,6 +212,11 @@
     width: 116%;
     height: 100%;
     border-radius: 5px;
+    transition: 0.3s;
+}
+.section-logo div img:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
 .section-logo p{
     position: absolute;
@@ -145,6 +249,11 @@
     border: 1px solid;
     border-color: #8c7f7f;
     border-radius: 5px;
+    transition: 0.3s;
+}
+.trending-section div img:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 /*------------frequently-Section------------ */
@@ -167,6 +276,11 @@
     height: 100%;
     object-fit: cover;
     border-radius: 5px;
+    transition: 0.3s;
+}
+.frequently-section div img:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
 .frequently-section  p{
     position: absolute;
@@ -199,6 +313,11 @@
     height: 100%;
     object-fit: cover;
     border-radius: 5px;
+    transition: 0.3s;
+}
+.fangear-section div img:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
 .fangear-section p{
     position: absolute;
@@ -234,8 +353,21 @@
     bottom: 8px;
     width: 94px;
     height: 34px;
-    background: #fff;
-    font-size: 20px;
+    background: rgba(238, 41, 83, 1);
+    font-size: 16px;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+.collections button:hover, .collections button:focus, .collections button:active{
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 /*------------footer-section------------ */
@@ -258,16 +390,84 @@
     height: 169px;
 }
 .footer-section h5{
-    text-align: center;
-    padding-top: 40px;
+    text-align: left;
     color: #fff;
+    font-size: 25px;
 }
-.footer-section p{
-    text-align: center;
+.a{
+    position: relative;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    padding-top: 10px;
+    transition: 0.5s;
+}
+.a::after{
+    content: "";
+    position: absolute;
+    background-color: rgba(238, 41, 83, 1);
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -3px;
+    transition: 0.5s;
+}
+.a{
+    color: #a0a0a0;
+}
+.a:hover{
     color: #fff;
+    transition: 0.5s;
+}
+.a:hover:after{
+    width: 25%;
+}
+.footer-section .logo-div{
+    width: 100%;
+    height: 182px;
+}
+.footer-nav iframe{
+    border: 0;
+    border-radius: 5px;
+    width: 100%;
+    height: 236px;
+    margin-top: 36px;
 }
 
+.social-row{
+    background-color: #000;
+}
 
+.social-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social-links i{
+    color: rgb(155 140 143);
+    padding-left: 23px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.5s;
+
+}
+.social-links i:hover{
+    color:  rgba(238, 41, 83, 1);
+}
+.social-row P{
+    padding-top: 6px;
+    color: rgb(189 175 178);
+    font-size: 20px;
+    text-align: center;
+
+}
+
+@media(max-width: 950px){
+    .wrapper{
+        left: 0;
+        z-index: 2;
+    }
+}
 
 @media(max-width: 767px){
     .toggle .bar-icon{
@@ -310,6 +510,7 @@
         display: block;
         margin-left: 5px;
     }
+    
 }
 
 @media(max-width:576px) {
@@ -328,6 +529,12 @@
         top: -32px;
         bottom: 0;
         height: 100vh;
+    }
+    .menu a:hover:after{
+        width: 10%;
+    }
+    .menu a:after{
+        bottom: -3px;
     }
 }
 
