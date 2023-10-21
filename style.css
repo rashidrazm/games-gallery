@@ -465,6 +465,7 @@
 @media(max-width: 950px){
     .wrapper{
         left: 0;
+        padding-left: 6px;
         z-index: 2;
     }
 }
@@ -535,6 +536,11 @@
     }
     .menu a:after{
         bottom: -3px;
+    }
+    .top-div a{
+        position: absolute;
+        right: 0;
+        padding-right: 6px;
     }
 }
 
