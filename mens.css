@@ -11,6 +11,7 @@
     text-align: center;
     font-weight: 700;
     padding-top: 10%;
+    list-decoration: none;
 }
 .dynamic-txts li span{
     position: relative;
